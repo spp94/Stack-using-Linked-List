@@ -1,0 +1,20 @@
+    public void pop(){
+    	if(size <= 0){
+    		System.out.println("Stack Underflow Exception");
+    	}
+    	else{
+    		if(first == last){
+    			first = last = null;
+    		}
+    		else{
+    			Node node = getPreviousNode(last);
+    			if(node != null){
+    			node.next = null;
+    			last = node;
+    			}
+    			else
+    				System.out.println("POP Not possible");
+    		}
+    		size--;
+    	}
+    }
