@@ -1,0 +1,20 @@
+    public void push(int value){
+    	if(size == max){
+    		System.out.println("Stack Overflow Exception");
+    	}
+    	else{
+    		Node node = new Node(value);
+    		if(first == null){
+    			first = last = node;
+    		}
+    		else if(first == last){
+    			first.next = node;
+    			last = node;
+    		}
+    		else{
+    			last.next = node;
+    			last = node;
+    		}
+    		size++;
+    	}
+    }
