@@ -1,0 +1,12 @@
+    private Node getPreviousNode(Node node){
+    	Node current = first;
+    	while(current.next != null){
+    		if(current.next.value == node.value){
+    			return current;
+    		}
+    		else{
+    			current = current.next;
+    		}
+    	}
+    	return null;
+    }
