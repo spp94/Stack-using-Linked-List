@@ -1,0 +1,92 @@
+public class StackUsingLinkedList {
+	private class Node{
+		private int value;
+		private Node next;
+		
+		private Node(int value){
+			this.value = value;
+		}
+	}
+    private Node first, last;
+    private int size = 0;
+    private int max = 5;
+    
+    public void push(int value){
+    	if(size == max){
+    		System.out.println("Stack Overflow Exception");
+    	}
+    	else{
+    		Node node = new Node(value);
+    		if(first == null){
+    			first = last = node;
+    		}
+    		else if(first == last){
+    			first.next = node;
+    			last = node;
+    		}
+    		else{
+    			last.next = node;
+    			last = node;
+    		}
+    		size++;
+    	}
+    }
+    
+    private Node getPreviousNode(Node node){
+    	Node current = first;
+    	while(current.next != null){
+    		if(current.next.value == node.value){
+    			return current;
+    		}
+    		else{
+    			current = current.next;
+    		}
+    	}
+    	return null;
+    }
+    
+    public void pop(){
+    	if(size <= 0){
+    		System.out.println("Stack Underflow Exception");
+    	}
+    	else{
+    		if(first == last){
+    			first = last = null;
+    		}
+    		else{
+    			Node node = getPreviousNode(last);
+    			if(node != null){
+    			node.next = null;
+    			last = node;
+    			}
+    			else
+    				System.out.println("POP Not possible");
+    		}
+    		size--;
+    	}
+    }
+    
+    
+    public void print(){
+    	Node current = first;
+    	while(current != null){
+    		System.out.print(current.value+" ");
+    		current = current.next;
+    	}
+    	System.out.println();
+    }
+    
+    
+    public int peek(){
+    	if(size <= 0){
+    		return -1;
+    	}
+    	else{
+    		return last.value;
+    	}
+    }
+    
+    public int size(){
+    	return size;
+    }
+}
