@@ -1,0 +1,8 @@
+ public void print(){
+    	Node current = first;
+    	while(current != null){
+    		System.out.print(current.value+" ");
+    		current = current.next;
+    	}
+    	System.out.println();
+    }
